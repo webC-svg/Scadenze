@@ -1,101 +1,1054 @@
+
 <!DOCTYPE html>
-<html lang="it"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#111827">
 <title>Le Mie Scadenze</title>
+
 <style>
-*{box-sizing:border-box}body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:#f6f7f9;color:#111}
-header{background:#111827;color:#fff;padding:18px 16px}header h1{margin:0;font-size:24px}header p{opacity:.85;margin:6px 0 0}
-.wrap{max-width:1100px;margin:auto;padding:16px}
-.card{background:#fff;border-radius:14px;padding:16px;box-shadow:0 2px 10px rgba(0,0,0,.06);margin-bottom:16px}
-h2{margin:0 0 12px;font-size:19px}h3{margin:14px 0 8px}
-.row{display:flex;gap:10px;flex-wrap:wrap;align-items:end}.field{flex:1;min-width:140px}.field label{display:block;font-size:12px;color:#555;margin-bottom:5px;font-weight:600}
-input,select,textarea{width:100%;padding:10px;border:1px solid #d1d5db;border-radius:9px;font-size:15px;background:#fff}
-button{border:0;border-radius:9px;padding:11px 14px;font-weight:700;cursor:pointer;background:#111827;color:#fff}
-button.ghost{background:#eef2f7;color:#111}button.green{background:#047857}button.red{background:#b91c1c}button.blue{background:#1d4ed8}
-.badge{display:inline-block;background:#dbeafe;padding:5px 10px;border-radius:999px;font-size:13px;font-weight:700;margin:8px 6px 0 0}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}.kpi{background:#f8fafc;border:1px solid #e5e7eb;border-radius:12px;padding:12px}.kpi b{font-size:22px;display:block}.kpi span{font-size:12px;color:#555}
-table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:9px 8px;border-bottom:1px solid #eee;text-align:left;vertical-align:top}th{background:#f8fafc}
-.current{background:#FFF9C4 !important;font-weight:700}.current td{font-weight:700}
-.pill{padding:4px 8px;border-radius:999px;font-size:12px;font-weight:700;background:#e5e7eb}.pill.pagata{background:#d1fae5}.pill.arretrata{background:#fee2e2}
-.small{font-size:13px;color:#555}.monthgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
-.monthcard{border:1px solid #e5e7eb;border-radius:12px;padding:12px;background:#fff}.monthcard b{font-size:17px}
-@media print{body{background:#fff}header,.no-print{display:none!important}.wrap{max-width:none;padding:0}.card{box-shadow:none;border:1px solid #ddd;break-inside:avoid}.print-title{display:block!important}}
+*{box-sizing:border-box}
+
+body{
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  margin:0;
+  background:#f3f5f9;
+  color:#172033;
+}
+
+header{
+  background:#111827;
+  color:white;
+  padding:22px 16px;
+}
+
+header h1{margin:0;font-size:25px}
+header p{margin:6px 0 0;color:#cbd5e1}
+
+.wrap{max-width:1150px;margin:auto;padding:16px}
+
+.card{
+  background:white;
+  border-radius:14px;
+  padding:17px;
+  box-shadow:0 2px 9px rgba(0,0,0,.06);
+  margin-bottom:16px;
+}
+
+h2{font-size:19px;margin:0 0 15px}
+h3{margin:12px 0}
+
+.row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:end;
+}
+
+.field{flex:1;min-width:145px}
+
+label{
+  display:block;
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:5px;
+  color:#4b5563;
+}
+
+input,select{
+  width:100%;
+  padding:11px;
+  border:1px solid #d1d5db;
+  border-radius:9px;
+  font-size:15px;
+  background:white;
+  color:#111827;
+}
+
+button{
+  border:0;
+  border-radius:9px;
+  padding:11px 14px;
+  font-weight:700;
+  cursor:pointer;
+  background:#111827;
+  color:white;
+  font-size:14px;
+}
+
+button:active{opacity:.75}
+button.green{background:#047857}
+button.blue{background:#1d4ed8}
+button.red{background:#b91c1c}
+button.ghost{background:#e5e7eb;color:#111827}
+
+.badge{
+  display:inline-block;
+  background:#dbeafe;
+  padding:6px 10px;
+  border-radius:30px;
+  font-size:12px;
+  font-weight:700;
+  margin:5px 4px 0 0;
+}
+
+.kpis{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
+  gap:10px;
+}
+
+.kpi{
+  background:#f8fafc;
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  padding:13px;
+  min-width:0;
+}
+
+.kpi b{
+  display:block;
+  font-size:21px;
+  margin-top:5px;
+  overflow-wrap:anywhere;
+}
+
+.kpi span{font-size:12px;color:#64748b}
+
+.monthgrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:10px;
+}
+
+.monthcard{
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  padding:13px;
+  background:white;
+}
+
+.monthcard b{font-size:16px}
+.current{
+  background:#fff9c4!important;
+  border:2px solid #eab308;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:13px;
+}
+
+th,td{
+  padding:10px 8px;
+  border-bottom:1px solid #eee;
+  text-align:left;
+  vertical-align:middle;
+}
+
+th{background:#f8fafc;white-space:nowrap}
+
+.pill{
+  padding:5px 8px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:700;
+  white-space:nowrap;
+  background:#e5e7eb;
+}
+
+.pagata{background:#d1fae5;color:#065f46}
+.arretrata{background:#fee2e2;color:#991b1b}
+.dapagare{background:#fef3c7;color:#92400e}
+
+.small{font-size:12px;color:#64748b;line-height:1.5}
+.tablewrap{overflow-x:auto}
+.actions{display:flex;gap:5px;flex-wrap:wrap}
+.actions button{padding:7px 9px;font-size:12px}
+
+.progress{
+  height:8px;
+  background:#e5e7eb;
+  border-radius:10px;
+  overflow:hidden;
+  margin-top:8px;
+}
+
+.progress div{
+  height:100%;
+  background:#059669;
+}
+
+.empty{
+  text-align:center;
+  padding:25px;
+  color:#64748b;
+}
+
+@media(max-width:600px){
+  header h1{font-size:22px}
+  .wrap{padding:10px}
+  .card{padding:13px}
+  .field{min-width:100%}
+  .row button{flex:1}
+}
+
+@media print{
+  body{background:white}
+  header,.no-print{display:none!important}
+  .wrap{max-width:none;padding:0}
+  .card{box-shadow:none;border:1px solid #ddd;break-inside:avoid}
+  .monthgrid{grid-template-columns:repeat(3,1fr)}
+  .print-title{display:block!important}
+}
+
 .print-title{display:none}
-</style></head><body>
-<header><h1>Le Mie Scadenze 💸</h1><p>Filtra per mese e anno, controlla i costi mese per mese e scarica il report in PDF.</p></header>
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Le Mie Scadenze 💸</h1>
+  <p>Gestisci le tue spese, controlla i pagamenti e organizza le scadenze.</p>
+</header>
+
 <div class="wrap">
-<div class="card no-print"><h2>➕ Nuova scadenza</h2>
-<div class="row"><div class="field"><label>Nome</label><input id="nome" placeholder="Es. Bolletta luce"></div>
-<div class="field"><label>Categoria</label><select id="categoria"><option>Bollette</option><option>Casa</option><option>Auto</option><option>Prestito</option><option>Salute</option><option>Altro</option></select></div>
-<div class="field"><label>Importo €</label><input id="importo" type="number" step="0.01" min="0" placeholder="0,00"></div>
-<div class="field"><label>Data scadenza</label><input id="data" type="date"></div></div>
-<div class="row" style="margin-top:10px"><div class="field"><label>Cadenza</label><select id="cadenza"><option value="1">Una tantum</option><option value="1m">Ogni mese</option><option value="2">Ogni 2 mesi</option><option value="3">Ogni 3 mesi</option><option value="4">Ogni 4 mesi</option><option value="6">Ogni 6 mesi</option><option value="12">Ogni anno</option><option value="x">Personalizzata (mesi)</option></select></div>
-<div class="field"><label>Ogni quanti mesi? (solo personalizzata)</label><input id="mesiPers" type="number" min="1" placeholder="Es. 5"></div>
-<div class="field"><label>Stato</label><select id="stato"><option>Da pagare</option><option>Pagata</option></select></div>
-<div class="field"><label>Note</label><input id="note" placeholder="Opzionale"></div></div>
-<div class="row" style="margin-top:12px"><button class="green" onclick="aggiungi()">+ Aggiungi scadenza</button><button class="ghost" onclick="caricaEsempi()">Carica esempi</button><button class="ghost" onclick="azzera()">Azzera filtri</button></div>
-<p class="small">I dati restano salvati in questo browser (localStorage). Per GitHub Pages basta pubblicare questo unico file <b>index.html</b>.</p></div>
 
-<div class="card"><h2>🔎 Filtro mese / anno</h2>
-<div class="row"><div class="field"><label>Mese</label><select id="fMese" onchange="render()"></select></div>
-<div class="field"><label>Anno</label><select id="fAnno" onchange="render()"></select></div>
-<div class="field"><label>Categoria</label><select id="fCat" onchange="render()"><option value="">Tutte</option><option>Bollette</option><option>Casa</option><option>Auto</option><option>Prestito</option><option>Salute</option><option>Altro</option></select></div>
-<div class="field"><label>Stato</label><select id="fStato" onchange="render()"><option value="">Tutti</option><option>Da pagare</option><option>Pagata</option><option>Arretrata</option></select></div></div>
-<div><span class="badge" id="badgePeriodo"></span><span class="badge" id="badgeMeseCorrente">📍 Mese corrente: <span id="meseCorrenteTxt"></span> — evidenziato in giallo chiaro + grassetto</span></div>
-<div class="row" style="margin-top:12px"><button onclick="meseCorrente()">📍 Mese corrente</button><button class="blue" onclick="scaricaPDF()">⬇ Scarica report PDF</button><button class="ghost" onclick="scaricaCSV()">⬇ Scarica CSV filtrato</button></div>
-<p class="small">Il PDF si apre dalla stampa del browser: scegli <b>Salva come PDF</b> come destinazione. Il report contiene solo il periodo filtrato.</p></div>
+<!-- NUOVA SCADENZA -->
 
-<div class="card"><h2>📊 Riepilogo <span id="titoloAnno"></span></h2><div class="kpis" id="kpiAnno"></div>
-<div id="infoAnno" class="small" style="margin-top:10px"></div></div>
+<div class="card no-print">
+<h2>➕ Nuova scadenza</h2>
 
-<div class="card"><h2>🗓️ Costi mese per mese</h2><div class="monthgrid" id="mesi"></div></div>
+<div class="row">
 
-<div class="card"><h2>📋 Scadenze <span id="conteggio"></span></h2>
-<div style="overflow:auto"><table><thead><tr><th>Data</th><th>Nome</th><th>Categoria</th><th>Cadenza</th><th>Importo</th><th>Stato</th><th>Note</th><th class="no-print">Azioni</th></tr></thead><tbody id="lista"></tbody></table></div>
-<p class="small" id="vuoto"></p></div>
-<div class="print-title"><h2>Report — Le Mie Scadenze</h2><p id="printPeriodo"></p></div>
+<div class="field">
+<label>Nome scadenza</label>
+<input id="nome" placeholder="Es. Bolletta luce">
 </div>
+
+<div class="field">
+<label>Categoria</label>
+<select id="categoria">
+<option>Bollette</option>
+<option>Casa</option>
+<option>Auto</option>
+<option>Prestito</option>
+<option>Salute</option>
+<option>Altro</option>
+</select>
+</div>
+
+<div class="field">
+<label>Importo €</label>
+<input id="importo" type="number" min="0" step="0.01" placeholder="0,00">
+</div>
+
+<div class="field">
+<label>Data scadenza</label>
+<input id="data" type="date">
+</div>
+
+</div>
+
+<div class="row" style="margin-top:12px">
+
+<div class="field">
+<label>Cadenza</label>
+<select id="cadenza">
+<option value="1">Una tantum</option>
+<option value="1m">Ogni mese</option>
+<option value="2">Ogni 2 mesi</option>
+<option value="3">Ogni 3 mesi</option>
+<option value="4">Ogni 4 mesi</option>
+<option value="6">Ogni 6 mesi</option>
+<option value="12">Ogni anno</option>
+<option value="x">Personalizzata</option>
+</select>
+</div>
+
+<div class="field">
+<label>Ogni quanti mesi?</label>
+<input id="mesiPers" type="number" min="1" placeholder="Es. 5">
+</div>
+
+<div class="field">
+<label>Stato</label>
+<select id="stato">
+<option>Da pagare</option>
+<option>Pagata</option>
+</select>
+</div>
+
+<div class="field">
+<label>Note</label>
+<input id="note" placeholder="Note facoltative">
+</div>
+
+</div>
+
+<div class="row" style="margin-top:14px">
+<button class="green" onclick="aggiungi()">+ Aggiungi scadenza</button>
+<button class="ghost" onclick="caricaEsempi()">Carica esempi</button>
+<button class="ghost" onclick="azzera()">Azzera filtri</button>
+</div>
+
+<p class="small">
+I dati vengono salvati automaticamente nel browser tramite memoria locale.
+</p>
+</div>
+
+<!-- FILTRI -->
+
+<div class="card no-print">
+<h2>🔎 Filtri</h2>
+
+<div class="row">
+
+<div class="field">
+<label>Mese</label>
+<select id="fMese" onchange="render()"></select>
+</div>
+
+<div class="field">
+<label>Anno</label>
+<select id="fAnno" onchange="render()"></select>
+</div>
+
+<div class="field">
+<label>Categoria</label>
+<select id="fCat" onchange="render()">
+<option value="">Tutte</option>
+<option>Bollette</option>
+<option>Casa</option>
+<option>Auto</option>
+<option>Prestito</option>
+<option>Salute</option>
+<option>Altro</option>
+</select>
+</div>
+
+<div class="field">
+<label>Stato</label>
+<select id="fStato" onchange="render()">
+<option value="">Tutti</option>
+<option>Da pagare</option>
+<option>Pagata</option>
+<option>Arretrata</option>
+</select>
+</div>
+
+</div>
+
+<div style="margin-top:12px">
+<span class="badge" id="badgePeriodo"></span>
+<span class="badge" id="meseCorrenteTxt"></span>
+</div>
+
+<div class="row" style="margin-top:13px">
+<button onclick="meseCorrente()">📍 Mese corrente</button>
+<button class="blue" onclick="scaricaPDF()">⬇ PDF</button>
+<button class="ghost" onclick="scaricaCSV()">⬇ CSV</button>
+</div>
+</div>
+
+<!-- RIEPILOGO -->
+
+<div class="card">
+<h2>📊 Riepilogo <span id="titoloAnno"></span></h2>
+<div class="kpis" id="kpiAnno"></div>
+<div id="infoAnno" class="small" style="margin-top:12px"></div>
+</div>
+
+<!-- COSTI MENSILI -->
+
+<div class="card">
+<h2>🗓️ Costi mese per mese</h2>
+<div class="monthgrid" id="mesi"></div>
+</div>
+
+<!-- LISTA -->
+
+<div class="card">
+<h2>📋 Elenco scadenze <span id="conteggio"></span></h2>
+
+<div class="tablewrap">
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Nome</th>
+<th>Categoria</th>
+<th>Cadenza</th>
+<th>Importo</th>
+<th>Stato</th>
+<th>Note</th>
+<th class="no-print">Azioni</th>
+</tr>
+</thead>
+<tbody id="lista"></tbody>
+</table>
+</div>
+
+<div id="vuoto"></div>
+</div>
+
+<div class="print-title">
+<h2>Report - Le Mie Scadenze</h2>
+<p id="printPeriodo"></p>
+</div>
+
+</div>
+
 <script>
-const MESI=['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
-let dati=JSON.parse(localStorage.getItem('scadenze_v1')||'[]');
-const oggi=new Date(); const MC_M=oggi.getMonth(), MC_A=oggi.getFullYear();
-function salva(){localStorage.setItem('scadenze_v1',JSON.stringify(dati))}
-function fmt(n){return '€ '+(+n||0).toFixed(2).replace('.',',')}
-function cadTxt(s){return {'1':'Una tantum','1m':'Ogni mese','2':'Ogni 2 mesi','3':'Ogni 3 mesi','4':'Ogni 4 mesi','6':'Ogni 6 mesi','12':'Ogni anno'}[s]||('Ogni '+s.replace('x','')+' mesi')}
-function statoDi(x){if(x.stato==='Pagata')return 'Pagata'; const d=new Date(x.data+'T00:00:00'); const t=new Date(); t.setHours(0,0,0,0); return d<t?'Arretrata':'Da pagare'}
-function isCorrente(x){const d=new Date(x.data+'T00:00:00'); return d.getMonth()===MC_M && d.getFullYear()===MC_A}
-function initFiltri(){const fm=document.getElementById('fMese'); fm.innerHTML='<option value="">Tutti i mesi</option>'+MESI.map((m,i)=>`<option value="${i}">${m}</option>`).join(''); fm.value=MC_M;
-const anni=[...new Set(dati.map(x=>new Date(x.data).getFullYear()))]; if(!anni.includes(MC_A))anni.push(MC_A); anni.sort();
-const fa=document.getElementById('fAnno'); fa.innerHTML='<option value="">Tutti gli anni</option>'+anni.map(a=>`<option>${a}</option>`).join(''); fa.value=MC_A;
-document.getElementById('meseCorrenteTxt').textContent=MESI[MC_M]+' '+MC_A;}
-function filtrate(){const m=document.getElementById('fMese').value, a=document.getElementById('fAnno').value, c=document.getElementById('fCat').value, s=document.getElementById('fStato').value;
-return dati.filter(x=>{const d=new Date(x.data+'T00:00:00'); if(m!==''&&d.getMonth()!=+m)return false; if(a!==''&&d.getFullYear()!=+a)return false; if(c&&x.categoria!==c)return false; if(s&&statoDi(x)!==s)return false; return true;});}
-function render(){const list=filtrate(); const a=document.getElementById('fAnno').value, m=document.getElementById('fMese').value;
-const annoSel=a?+a:MC_A; document.getElementById('titoloAnno').textContent=a||('Tutti gli anni');
-document.getElementById('badgePeriodo').textContent='Stai vedendo: '+(m!==''?MESI[+m]+' ':'Tutti i mesi ')+(a||'Tutti gli anni');
-document.getElementById('printPeriodo').textContent='Periodo: '+(m!==''?MESI[+m]+' ':'')+(a||'Tutti gli anni')+' — Generato il '+oggi.toLocaleDateString('it-IT');
-// Riepilogo anno / periodo
-const base=dati.filter(x=>!a||new Date(x.data).getFullYear()==+a);
-const tot=x=>x.reduce((s,v)=>s+(+v.importo||0),0); const pag=base.filter(x=>statoDi(x)==='Pagata'), arr=base.filter(x=>statoDi(x)==='Arretrata'), dap=base.filter(x=>statoDi(x)==='Da pagare');
-const kpi=[['Totale periodo',fmt(tot(base))],['Pagato',fmt(tot(pag))],['Da pagare',fmt(tot(dap))],['Arretrato',fmt(tot(arr))],['Scadenze',base.length],['% completata',base.length?Math.round(pag.length/base.length*100)+'%':'—']];
-document.getElementById('kpiAnno').innerHTML=kpi.map(k=>`<div class="kpi"><span>${k[0]}</span><b>${k[1]}</b></div>`).join('');
-// costi mese per mese
-let perMese=MESI.map((nome,i)=>{const xs=base.filter(x=>new Date(x.data).getMonth()===i); return {nome,i,tot:tot(xs),pag:tot(xs.filter(x=>statoDi(x)==='Pagata')),arr:tot(xs.filter(x=>statoDi(x)==='Arretrata')),n:xs.length}});
-let max=perMese.reduce((p,c)=>c.tot>p.tot?c:p,perMese[0]); let maxN=perMese.reduce((p,c)=>c.n>p.n?c:p,perMese[0]);
-document.getElementById('infoAnno').innerHTML=`Mese più costoso: <b>${max.nome} (${fmt(max.tot)})</b> • Mese con più scadenze: <b>${maxN.nome} (${maxN.n})</b>`;
-document.getElementById('mesi').innerHTML=perMese.map(x=>`<div class="monthcard ${x.i===MC_M&&annoSel===MC_A?'current':''}"><b>${x.nome} ${x.i===MC_M&&annoSel===MC_A?'• Mese corrente':''}</b><div>Totale: <b>${fmt(x.tot)}</b></div><div>Pagato: ${fmt(x.pag)} • Arretrato: ${fmt(x.arr)}</div><div>Scadenze: ${x.n} • Pagate: ${Math.round(x.n?x.pag/x.tot*100||0:0)}% importo</div></div>`).join('');
-// elenco
-document.getElementById('conteggio').textContent='('+list.length+')';
-document.getElementById('lista').innerHTML=list.sort((a,b)=>a.data.localeCompare(b.data)).map((x,i)=>{const idx=dati.indexOf(x); const cur=isCorrente(x); return `<tr class="${cur?'current':''}"><td>${new Date(x.data+'T00:00:00').toLocaleDateString('it-IT')} ${cur?'• Mese corrente':''}</td><td>${x.nome}</td><td>${x.categoria}</td><td>${cadTxt(x.cadenza)}</td><td>${fmt(x.importo)}</td><td><span class="pill ${statoDi(x)==='Pagata'?'pagata':statoDi(x)==='Arretrata'?'arretrata':''}">${statoDi(x)}</span></td><td>${x.note||''}</td><td class="no-print"><button onclick="toggle(${idx})">✓ Pagata</button> <button class="red" onclick="elimina(${idx})">Elimina</button></td></tr>`}).join('');
-document.getElementById('vuoto').textContent=list.length?'':'Nessuna scadenza in questo periodo. Aggiungine una sopra o azzera i filtri.';}
-function aggiungi(){const nome=document.getElementById('nome').value.trim(), importo=document.getElementById('importo').value, data=document.getElementById('data').value; if(!nome||!importo||!data){alert('Inserisci nome, importo e data');return}
-let cad=document.getElementById('cadenza').value; if(cad==='x'){const mp=document.getElementById('mesiPers').value; if(!mp){alert('Inserisci ogni quanti mesi');return} cad='x'+mp}
-dati.push({nome,categoria:document.getElementById('categoria').value,importo:+importo,data,cadenza:cad,stato:document.getElementById('stato').value,note:document.getElementById('note').value}); salva(); initFiltri(); render(); document.getElementById('nome').value='';document.getElementById('importo').value='';document.getElementById('note').value='';}
-function toggle(i){dati[i].stato=dati[i].stato==='Pagata'?'Da pagare':'Pagata'; salva(); render();}
-function elimina(i){if(confirm('Eliminare questa scadenza?')){dati.splice(i,1);salva();initFiltri();render();}}
-function meseCorrente(){document.getElementById('fMese').value=MC_M; document.getElementById('fAnno').value=MC_A; render();}
-function azzera(){document.getElementById('fMese').value='';document.getElementById('fAnno').value='';document.getElementById('fCat').value='';document.getElementById('fStato').value='';render();}
-function caricaEsempi(){if(dati.length&&!confirm('Aggiungere gli esempi ai dati esistenti?'))return; const ex=[['Bolletta luce','Bollette',85,'2026-11-18','2','Da pagare',''],['Affitto','Casa',750,'2026-11-01','1m','Pagata',''],['Assicurazione auto','Auto',420,'2026-12-10','12','Da pagare',''],['Rata prestito','Prestito',230,'2026-11-25','1m','Da pagare',''],['Bolletta gas','Bollette',62,'2026-10-15','2','Pagata',''],['Internet','Casa',29.9,'2026-11-05','1m','Da pagare','']]; ex.forEach(e=>dati.push({nome:e[0],categoria:e[1],importo:e[2],data:e[3],cadenza:e[4],stato:e[5],note:e[6]})); salva(); initFiltri(); render();}
-function scaricaPDF(){window.print();}
-function scaricaCSV(){const list=filtrate(); let csv='Nome;Categoria;Cadenza;Data;Importo;Stato;Note\n'+list.map(x=>[x.nome,x.categoria,cadTxt(x.cadenza),x.data,x.importo,statoDi(x),x.note||''].join(';')).join('\n'); const b=new Blob(['\ufeff'+csv],{type:'text/csv'}); const a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download='scadenze-filtrate.csv'; a.click();}
-initFiltri(); render();
-</script></body></html>
+
+/* =================================
+   CONFIGURAZIONE E SALVATAGGIO
+================================= */
+
+const MESI=[
+'Gennaio','Febbraio','Marzo','Aprile',
+'Maggio','Giugno','Luglio','Agosto',
+'Settembre','Ottobre','Novembre','Dicembre'
+];
+
+const CHIAVE='scadenze_v2';
+
+const oggi=new Date();
+const MC_M=oggi.getMonth();
+const MC_A=oggi.getFullYear();
+
+function caricaDati(){
+
+  try{
+    const raw=localStorage.getItem(CHIAVE);
+    const vecchi=localStorage.getItem('scadenze_v1');
+
+    const dati=JSON.parse(raw || vecchi || '[]');
+
+    return Array.isArray(dati)
+      ? dati.filter(x=>x && typeof x==='object' && x.data && x.nome!==undefined)
+      : [];
+
+  }catch(e){
+    console.error('Errore caricamento dati:',e);
+    return [];
+  }
+
+}
+
+let dati=caricaDati();
+
+function salva(){
+
+  try{
+    localStorage.setItem(CHIAVE,JSON.stringify(dati));
+    return true;
+  }catch(e){
+    alert('Impossibile salvare i dati. Controlla lo spazio disponibile nel browser.');
+    return false;
+  }
+
+}
+
+/* =================================
+   FUNZIONI GENERALI
+================================= */
+
+function el(id){
+  return document.getElementById(id);
+}
+
+function escapeHTML(v){
+  return String(v??'').replace(/[&<>"']/g,c=>({
+    '&':'&amp;',
+    '<':'&lt;',
+    '>':'&gt;',
+    '"':'&quot;',
+    "'":'&#39;'
+  })[c]);
+}
+
+function dataLocale(s){
+  const p=String(s).split('-').map(Number);
+  return new Date(p[0],p[1]-1,p[2]);
+}
+
+function fmt(n){
+  return new Intl.NumberFormat('it-IT',{
+    style:'currency',
+    currency:'EUR'
+  }).format(Number(n)||0);
+}
+
+function totale(arr){
+  return arr.reduce((s,x)=>s+(Number(x.importo)||0),0);
+}
+
+function cadTxt(s){
+
+  const nomi={
+    '1':'Una tantum',
+    '1m':'Ogni mese',
+    '2':'Ogni 2 mesi',
+    '3':'Ogni 3 mesi',
+    '4':'Ogni 4 mesi',
+    '6':'Ogni 6 mesi',
+    '12':'Ogni anno'
+  };
+
+  if(nomi[s])return nomi[s];
+
+  if(String(s).startsWith('x')){
+    return 'Ogni '+String(s).substring(1)+' mesi';
+  }
+
+  return 'Una tantum';
+}
+
+function statoDi(x){
+
+  if(x.stato==='Pagata')return 'Pagata';
+
+  const d=dataLocale(x.data);
+  const t=new Date();
+  t.setHours(0,0,0,0);
+
+  return d<t?'Arretrata':'Da pagare';
+}
+
+function isCorrente(x){
+  const d=dataLocale(x.data);
+  return d.getMonth()===MC_M && d.getFullYear()===MC_A;
+}
+
+/* =================================
+   FILTRI
+================================= */
+
+function initFiltri(){
+
+  const fm=el('fMese');
+
+  fm.innerHTML=
+    '<option value="">Tutti i mesi</option>'+
+    MESI.map((m,i)=>`<option value="${i}">${m}</option>`).join('');
+
+  const fa=el('fAnno');
+
+  const anni=[...new Set(
+    dati.map(x=>dataLocale(x.data).getFullYear())
+  )];
+
+  if(!anni.includes(MC_A))anni.push(MC_A);
+
+  anni.sort((a,b)=>a-b);
+
+  fa.innerHTML=
+    '<option value="">Tutti gli anni</option>'+
+    anni.map(a=>`<option value="${a}">${a}</option>`).join('');
+
+  el('meseCorrenteTxt').textContent=
+    '📍 Mese corrente: '+MESI[MC_M]+' '+MC_A;
+
+}
+
+function filtrate(){
+
+  const m=el('fMese').value;
+  const a=el('fAnno').value;
+  const c=el('fCat').value;
+  const s=el('fStato').value;
+
+  return dati.filter(x=>{
+
+    const d=dataLocale(x.data);
+
+    if(m!=='' && d.getMonth()!==Number(m))return false;
+    if(a!=='' && d.getFullYear()!==Number(a))return false;
+    if(c && x.categoria!==c)return false;
+    if(s && statoDi(x)!==s)return false;
+
+    return true;
+
+  });
+
+}
+
+/* =================================
+   RIEPILOGO
+================================= */
+
+function riepilogo(list){
+
+  const pag=list.filter(x=>statoDi(x)==='Pagata');
+  const arr=list.filter(x=>statoDi(x)==='Arretrata');
+  const dap=list.filter(x=>statoDi(x)==='Da pagare');
+
+  const percentuale=list.length
+    ?Math.round(pag.length/list.length*100)
+    :0;
+
+  const kpi=[
+
+    ['Totale scadenze',fmt(totale(list))],
+    ['Totale pagato',fmt(totale(pag))],
+    ['Da pagare',fmt(totale(dap))],
+    ['Arretrato',fmt(totale(arr))],
+    ['Numero scadenze',list.length],
+    ['Pagamenti completati',percentuale+'%']
+
+  ];
+
+  el('kpiAnno').innerHTML=kpi.map(k=>`
+    <div class="kpi">
+      <span>${k[0]}</span>
+      <b>${k[1]}</b>
+    </div>
+  `).join('');
+
+}
+
+/* =================================
+   COSTI MENSILI
+================================= */
+
+function costiMensili(){
+
+  const anno=el('fAnno').value;
+  const cat=el('fCat').value;
+  const stato=el('fStato').value;
+
+  let base=dati.filter(x=>{
+
+    const d=dataLocale(x.data);
+
+    if(anno!=='' && d.getFullYear()!==Number(anno))return false;
+    if(cat && x.categoria!==cat)return false;
+    if(stato && statoDi(x)!==stato)return false;
+
+    return true;
+
+  });
+
+  const mesi= MESI.map((nome,i)=>{
+
+    const xs=base.filter(x=>dataLocale(x.data).getMonth()===i);
+
+    const pag=xs.filter(x=>statoDi(x)==='Pagata');
+    const arr=xs.filter(x=>statoDi(x)==='Arretrata');
+
+    const t=totale(xs);
+    const tp=totale(pag);
+
+    return{
+      nome,
+      i,
+      tot:t,
+      pag:tp,
+      arr:totale(arr),
+      n:xs.length,
+      perc:t>0?Math.round(tp/t*100):0
+    };
+
+  });
+
+  el('mesi').innerHTML=mesi.map(x=>`
+
+    <div class="monthcard ${x.i===MC_M && Number(anno||MC_A)===MC_A?'current':''}">
+
+      <b>${x.nome}</b>
+
+      <div style="margin-top:8px">
+        Totale: <b>${fmt(x.tot)}</b>
+      </div>
+
+      <div class="small">
+        Pagato: ${fmt(x.pag)}
+      </div>
+
+      <div class="small">
+        Arretrato: ${fmt(x.arr)}
+      </div>
+
+      <div class="small">
+        Scadenze: ${x.n}
+      </div>
+
+      <div class="small">
+        Completato: ${x.perc}%
+      </div>
+
+      <div class="progress">
+        <div style="width:${x.perc}%"></div>
+      </div>
+
+    </div>
+
+  `).join('');
+
+}
+
+/* =================================
+   ELENCO SCADENZE
+================================= */
+
+function elenco(list){
+
+  el('conteggio').textContent='('+list.length+')';
+
+  const ordinata=[...list].sort((a,b)=>
+    a.data.localeCompare(b.data)
+  );
+
+  el('lista').innerHTML=ordinata.map(x=>{
+
+    const idx=dati.indexOf(x);
+    const stato=statoDi(x);
+
+    const classe=
+      stato==='Pagata'?'pagata':
+      stato==='Arretrata'?'arretrata':'dapagare';
+
+    return `
+
+      <tr class="${isCorrente(x)?'current':''}">
+
+        <td>${dataLocale(x.data).toLocaleDateString('it-IT')}</td>
+
+        <td><b>${escapeHTML(x.nome)}</b></td>
+
+        <td>${escapeHTML(x.categoria)}</td>
+
+        <td>${escapeHTML(cadTxt(x.cadenza))}</td>
+
+        <td><b>${fmt(x.importo)}</b></td>
+
+        <td>
+          <span class="pill ${classe}">
+            ${stato}
+          </span>
+        </td>
+
+        <td>${escapeHTML(x.note||'')}</td>
+
+        <td class="no-print">
+          <div class="actions">
+
+            <button class="green"
+              onclick="toggle(${idx})">
+              ${stato==='Pagata'?'Annulla':'Pagata'}
+            </button>
+
+            <button class="red"
+              onclick="elimina(${idx})">
+              Elimina
+            </button>
+
+          </div>
+        </td>
+
+      </tr>
+
+    `;
+
+  }).join('');
+
+  el('vuoto').innerHTML=list.length
+    ?''
+    :'<div class="empty">Nessuna scadenza trovata.</div>';
+
+}
+
+/* =================================
+   AGGIORNAMENTO PAGINA
+================================= */
+
+function render(){
+
+  const list=filtrate();
+
+  const a=el('fAnno').value;
+  const m=el('fMese').value;
+
+  el('titoloAnno').textContent=
+    a?' - '+a:'';
+
+  el('badgePeriodo').textContent=
+    'Periodo: '+(m!==''?MESI[Number(m)]:'Tutti i mesi')
+    +' - '+(a||'Tutti gli anni');
+
+  el('printPeriodo').textContent=
+    'Periodo: '+(m!==''?MESI[Number(m)]+' ':'')
+    +(a||'Tutti gli anni')
+    +' - Generato il '+oggi.toLocaleDateString('it-IT');
+
+  riepilogo(list);
+  costiMensili();
+  elenco(list);
+
+}
+
+/* =================================
+   AGGIUNGI SCADENZA
+================================= */
+
+function aggiungi(){
+
+  const nome=el('nome').value.trim();
+  const importo=el('importo').value;
+  const data=el('data').value;
+
+  if(!nome || importo==='' || !data){
+    alert('Inserisci nome, importo e data.');
+    return;
+  }
+
+  if(!Number.isFinite(Number(importo)) || Number(importo)<0){
+    alert('Inserisci un importo valido.');
+    return;
+  }
+
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(data) ||
+     !Number.isFinite(dataLocale(data).getTime()) ||
+     dataLocale(data).toISOString().slice(0,10)!==data){
+    alert('Inserisci una data valida.');
+    return;
+  }
+
+  let cad=el('cadenza').value;
+
+  if(cad==='x'){
+
+    const mp=Number(el('mesiPers').value);
+
+    if(!Number.isInteger(mp)||mp<1){
+      alert('Inserisci un numero valido di mesi.');
+      return;
+    }
+
+    cad='x'+mp;
+
+  }
+
+  const nuovo={
+
+    id:Date.now()+'-'+Math.random().toString(16).slice(2),
+    nome:nome,
+    categoria:el('categoria').value,
+    importo:Number(importo),
+    data:data,
+    cadenza:cad,
+    stato:el('stato').value,
+    note:el('note').value.trim()
+
+  };
+
+  dati.push(nuovo);
+
+  if(!salva()){
+    dati.pop();
+    return;
+  }
+
+  el('nome').value='';
+  el('importo').value='';
+  el('note').value='';
+  el('data').value='';
+  el('mesiPers').value='';
+
+  initFiltri();
+  render();
+
+}
+
+/* =================================
+   CAMBIA STATO
+================================= */
+
+function toggle(i){
+
+  if(!dati[i])return;
+
+  const vecchio=dati[i].stato;
+
+  dati[i].stato=vecchio==='Pagata'
+    ?'Da pagare'
+    :'Pagata';
+
+  if(!salva()){
+    dati[i].stato=vecchio;
+    return;
+  }
+
+  render();
+
+}
+
+/* =================================
+   ELIMINA
+================================= */
+
+function elimina(i){
+
+  if(!dati[i])return;
+
+  if(!confirm('Vuoi eliminare questa scadenza?'))return;
+
+  const vecchio=dati[i];
+
+  dati.splice(i,1);
+
+  if(!salva()){
+    dati.splice(i,0,vecchio);
+    return;
+  }
+
+  initFiltri();
+  render();
+
+}
+
+/* =================================
+   FILTRI RAPIDI
+================================= */
+
+function meseCorrente(){
+
+  el('fMese').value=MC_M;
+  el('fAnno').value=MC_A;
+
+  el('fCat').value='';
+  el('fStato').value='';
+
+  render();
+
+}
+
+function azzera(){
+
+  el('fMese').value='';
+  el('fAnno').value='';
+  el('fCat').value='';
+  el('fStato').value='';
+
+  render();
+
+}
+
+/* =================================
+   ESEMPI
+================================= */
+
+function caricaEsempi(){
+
+  if(dati.length &&
+    !confirm('Aggiungere gli esempi ai dati esistenti?'))return;
+
+  const ex=[
+
+    ['Bolletta luce','Bollette',85,'2026-11-18','2','Da pagare',''],
+    ['Affitto','Casa',750,'2026-11-01','1m','Pagata',''],
+    ['Assicurazione auto','Auto',420,'2026-12-10','12','Da pagare',''],
+    ['Rata prestito','Prestito',230,'2026-11-25','1m','Da pagare',''],
+    ['Bolletta gas','Bollette',62,'2026-10-15','2','Pagata',''],
+    ['Internet','Casa',29.90,'2026-11-05','1m','Da pagare','']
+
+  ];
+
+  const nuovi=ex.map(e=>({
+
+    id:Date.now()+'-'+Math.random().toString(16).slice(2),
+    nome:e[0],
+    categoria:e[1],
+    importo:e[2],
+    data:e[3],
+    cadenza:e[4],
+    stato:e[5],
+    note:e[6]
+
+  }));
+
+  dati.push(...nuovi);
+
+  if(!salva()){
+    dati.splice(-nuovi.length);
+    return;
+  }
+
+  initFiltri();
+  render();
+
+}
+
+/* =================================
+   PDF
+================================= */
+
+function scaricaPDF(){
+
+  window.print();
+
+}
+
+/* =================================
+   ESPORTAZIONE CSV
+================================= */
+
+function scaricaCSV(){
+
+  const list=filtrate();
+
+  function csvVal(v){
+
+    return '"'+String(v??'').replace(/"/g,'""')+'"';
+
+  }
+
+  let csv='Nome;Categoria;Cadenza;Data;Importo;Stato;Note\n';
+
+  csv+=list.map(x=>[
+
+    x.nome,
+    x.categoria,
+    cadTxt(x.cadenza),
+    x.data,
+    Number(x.importo||0).toFixed(2).replace('.',','),
+    statoDi(x),
+    x.note||''
+
+  ].map(csvVal).join(';')).join('\n');
+
+  const blob=new Blob(
+    ['\ufeff'+csv],
+    {type:'text/csv;charset=utf-8'}
+  );
+
+  const url=URL.createObjectURL(blob);
+
+  const a=document.createElement('a');
+
+  a.href=url;
+  a.download='Le-Mie-Scadenze.csv';
+
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+
+}
+
+/* =================================
+   AVVIO
+================================= */
+
+initFiltri();
+render();
+
+</script>
+
+</body>
+</html>
